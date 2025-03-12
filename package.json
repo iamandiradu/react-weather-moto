@@ -1,5 +1,5 @@
 {
-  "name": "motorcycle-weather-checker",
+  "name": "react-weather-moto",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",

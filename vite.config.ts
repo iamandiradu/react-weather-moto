@@ -9,5 +9,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/motorcycle-weather/',
+  base: '/react-weather-moto/',
 });
