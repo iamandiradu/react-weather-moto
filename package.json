@@ -46,5 +46,6 @@
     "ignoredBuiltDependencies": [
       "esbuild"
     ]
-  }
+  },
+  "homepage": "https://iamandiradu.github.io/react-weather-moto"
 }
