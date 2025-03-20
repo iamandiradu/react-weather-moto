@@ -20,11 +20,16 @@ export function isRidingSafe(
   const warnings: string[] = [];
   let safe = true;
 
-  // Check temperature (all temps should be above 10°C)
-  const lowTemp = Math.min(...temperatures);
+  // Check temperature during commute hours (8-9AM and 4-6PM)
+  const commuteTemps = temperatures.filter((_, i) => i === 8 || i === 16 || i === 17);
+  const lowTemp = Math.min(...commuteTemps);
   if (lowTemp < 10) {
-    safe = false;
-    warnings.push(`Temperature too low: ${lowTemp}°C`);
+    if (lowTemp < 5) {
+      safe = false;
+      warnings.push(`Temperature too low during commute: ${lowTemp}°C`);
+    } else {
+      warnings.push(`Cool temperature during commute: ${lowTemp}°C - ride with caution`);
+    }
   }
 
   // Check rain during commute hours (8-9AM and 4-6PM)
@@ -43,6 +48,8 @@ export function isRidingSafe(
   if (windSpeed > 50) {
     safe = false;
     warnings.push(`Strong winds: ${Math.round(windSpeed)} km/h`);
+  } else if (windSpeed >= 30) {
+    warnings.push(`Moderate winds: ${Math.round(windSpeed)} km/h - ride with caution`);
   }
 
   return { safe, warnings };
