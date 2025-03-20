@@ -86,6 +86,26 @@ function App() {
           <p className="text-gray-400">Check if it's safe to ride today</p>
         </div>
 
+        <div className="bg-gray-800/50 rounded-lg p-4 text-sm text-gray-300">
+          <h2 className="font-semibold mb-2 text-gray-200">Safety Criteria:</h2>
+          <ul className="space-y-1">
+            <li>• Temperature must be above 10°C during commute hours (8-9AM and 4-6PM)
+              <ul className="ml-4 mt-1 text-gray-400">
+                <li>- Below 5°C: Not safe to ride</li>
+                <li>- 5-10°C: Ride with caution</li>
+              </ul>
+            </li>
+            <li>• No heavy rain ({'>'}7mm/h) during commute hours</li>
+            <li>• Light rain during commute will show a caution warning</li>
+            <li>• Wind speed criteria:
+              <ul className="ml-4 mt-1 text-gray-400">
+                <li>- Above 50 km/h: Not safe to ride</li>
+                <li>- 20-50 km/h: Ride with caution</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
             <button
