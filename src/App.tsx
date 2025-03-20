@@ -66,7 +66,7 @@ function App() {
           probability: item.pop,
           volume: item.rain?.['3h'] || 0
         },
-        windSpeed: item.wind.speed * 3.6 // Convert m/s to km/h
+        windSpeed: Math.round(item.wind.speed * 3.6) // Convert m/s to km/h and round
       }));
 
     const temperatures = dayHours.map((h: any) => h.temp);

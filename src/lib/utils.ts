@@ -42,7 +42,7 @@ export function isRidingSafe(
   // Check wind speed (anything above 50 km/h is considered strong)
   if (windSpeed > 50) {
     safe = false;
-    warnings.push(`Strong winds: ${windSpeed} km/h`);
+    warnings.push(`Strong winds: ${Math.round(windSpeed)} km/h`);
   }
 
   return { safe, warnings };
